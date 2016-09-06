@@ -4,9 +4,7 @@
 	<title> Results </title>
 </head>
 <body>
-	<?php
-		echo $_POST["queryText"];
-	?>
+	The data searched: <?php echo $_POST["queryText"]; ?>
 </body>
 </html>
 	

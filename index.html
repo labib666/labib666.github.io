@@ -1,75 +1,26 @@
 <!DOCTYPE html>
 <html>
-
-
-	<head>
-		<title>
-			Law Network Visualization
-		</title>
-
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-		<!-- jQuery library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-		<!-- Latest compiled JavaScript -->
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-		<!-- Importing Lobster Font -->
-		<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
-
-		<!-- Importing common css -->
-		<link rel="stylesheet" type="text/css" href="css/common.css">
-
-		<!-- Importing js for this file -->
-		<script type="text/javascript" src="js/index.js"></script>
-
-		<!-- Importing css for this file -->
-		<link rel="stylesheet" type="text/css" href="css/index.css">
-
-	</head>
-
-
-	<body>
-		<div class="container-fluid">
-			<div class="row">
-				<h3 class="text-center text-primary" style="font-family: lobster,verdana" id="headerText" >
-					Law Network Visualization
-				</h3>
-			</div>
-		<!-- Search Box -->
-			<div class="row">
-				<div class="col-md-4 form-group" style="font-family: verdana">
-					<label for="searchBox">Search:</label>
-					<input type="text" name="searchText" id="searchBox" class="form-control">
-				</div>
-				<div class="col-md-4">
-					
-				</div>
-				<div class="col-md-4">
-					<button class="btn btn-danger btn-block btn-lg" id="reloadButton" onclick="reloadViz()">
-						Reload
-					</button>
-				</div>
-			</div>
-
-			<div class="row">
-
-		<!-- showing suggestions -->
-		<!-- may need to change if we are trying a different approach -->
-				<div class="col-md-4 form-group" id="suggestion">
-					
-				</div>
-
-		<!-- Data vis here -->
-				<div class="col-md-8" id="dataVis">
-					<iframe src="viz.html" width="100%" height="720px" id="viziframe"></iframe>
-				</div>
-
-			</div>
-		</div>
-	</body>
-
-
+<head>
+	<meta charset="utf-8" />
+	<title>Vue Test</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="./js/index.js"></script>
+</head>
+<body>
+	<div id="app">
+		{{ message }}<br/>
+		<span v-if="seen">Now you see me</span>
+		<animal 
+			v-for='animal in ara'
+			v-bind:call='animal.text'
+			v-bind:key='animal.id'>
+		</animal>
+	</div>
+	<div id="app-2">
+		<span v-bind:title="message">
+			Hover your mouse over me for a few seconds
+			to see my dynamically bound title!
+		</span>
+	</div>
+</body>
 </html>

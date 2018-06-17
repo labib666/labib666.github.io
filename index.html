@@ -1,26 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8" />
-	<title>Vue Test</title>
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	<script src="./js/index.js"></script>
-</head>
-<body>
-	<div id="app">
-		{{ message }}<br/>
-		<span v-if="seen">Now you see me</span>
-		<animal 
-			v-for='animal in ara'
-			v-bind:call='animal.text'
-			v-bind:key='animal.id'>
-		</animal>
-	</div>
-	<div id="app-2">
-		<span v-bind:title="message">
-			Hover your mouse over me for a few seconds
-			to see my dynamically bound title!
-		</span>
-	</div>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>test-vue</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
 </html>

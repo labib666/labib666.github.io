@@ -3,6 +3,8 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="725995154967-tqafkhas8l5rdjshic9jnnl7dc8lcqdt.apps.googleusercontent.com">
   </head>
   <body>
     <script>
@@ -38,7 +40,7 @@
           cookie     : true,  // enable cookies to allow the server to access 
                               // the session
           xfbml      : true,  // parse social plugins on this page
-          version    : 'v2.8' // use graph api version 2.8
+          version    : 'v3.1' // use graph api version 2.8
         });
     
         // Now that we've initialized the JavaScript SDK, we call 
@@ -76,6 +78,14 @@
             'Thanks for logging in, ' + response.name + '!';
         });
       }
+      function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('id_token: ' + googleUser.getAuthResponse().id_token);
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+      }
     </script>
 
     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
@@ -84,6 +94,7 @@
     <div id="status">
     </div>
 
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
     
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
